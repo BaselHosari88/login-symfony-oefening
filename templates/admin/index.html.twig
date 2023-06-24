@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container text-center">
+    <h1>Welkom {{app.user.fname}}! </h1>
+<p>je bent admin</p>
+    <p>je dierenland heet :{{ app.user.part }}</p>
+
+
+
+
+
+
+
+</div>
+    <div class="container">
+        <table class="table">
+
+            <thead>
+            <tr>
+
+                <th scope="col">Dieren</th>
+                <th scope="col">Beschrijven</th>
+                <th scope="col"></th>
+
+            </tr>
+
+            </thead>
+            <tbody>
+
+            {% for dier in dieren %}
+                <tr>
+
+                    <td>{{ dier.name }}</td>
+                    <td>{{ dier.description }}</td>
+                    <td ><a class="btn btn-danger " href="{{ path('delete',{id:dier.id}) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <td ><a class="btn btn-success " href="{{ path('form') }}">insert</a></td>
+
+
+    </div>
+{% endblock %}
